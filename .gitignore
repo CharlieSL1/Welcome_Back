@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+outputs/
+*.wav
+*.mp3
+*.ogg
+temp_*.wav
+
+# Environment variables and secrets
+.env
+.env.local
+config.ini
+secrets.json
+*.key
+*.pem
+
+# Logs
+*.log
+logs/
+
