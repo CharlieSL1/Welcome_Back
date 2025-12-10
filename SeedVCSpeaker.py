@@ -44,8 +44,13 @@ def speak_with_seed_vc(text: str,
     try:
         if seed_vc_path is None:
             seed_vc_path = os.getenv("SEED_VC_PATH")
-            if not seed_vc_path:
-                raise ValueError("Seed-VC path not found. Please set SEED_VC_PATH environment variable or pass it as parameter.")
+        if seed_vc_path is None:
+            project_root = Path(__file__).resolve().parent
+            default_path = project_root / "seed-vc"
+            if default_path.exists():
+                seed_vc_path = str(default_path)
+        if seed_vc_path is None:
+            raise ValueError("Seed-VC path not found. Set SEED_VC_PATH or place seed-vc/ in project root.")
         
         if reference_audio is None:
             grandfather_dir = os.path.join(seed_vc_path, "data/grandfather")

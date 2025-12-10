@@ -92,26 +92,26 @@ Set the following environment variables before running:
 # Required: OpenAI API key for GPT-4 and TTS
 export OPENAI_API_KEY="your-openai-api-key-here"
 
-# Required: Path to Seed-VC repository
+# Optional: Path to Seed-VC repository (defaults to ./seed-vc bundled in this repo)
 export SEED_VC_PATH="/path/to/seed-vc"
 ```
 
 Or create a `.env` file in the project root (make sure it's in `.gitignore`):
 ```bash
 OPENAI_API_KEY=your-openai-api-key-here
+# Optional override; if omitted, uses ./seed-vc
 SEED_VC_PATH=/path/to/seed-vc
 ```
 
 ### Setting up Seed-VC
 
-1. Clone the Seed-VC repository:
+The project bundles the Seed-VC **code** in `./seed-vc`, but **does not include model/checkpoint files** (to keep the repo pushable). At first run, download or place the required checkpoints under `seed-vc/checkpoints` following the Seed-VC docs.
+
+If you prefer to manage your own copy, clone it elsewhere and point `SEED_VC_PATH` to that location:
 ```bash
-git clone https://github.com/Plachta/Seed-VC.git
+git clone https://github.com/Plachta/Seed-VC.git /your/path/seed-vc
+export SEED_VC_PATH="/your/path/seed-vc"
 ```
-
-2. Follow Seed-VC installation instructions in their repository
-
-3. Set the `SEED_VC_PATH` environment variable to point to the cloned repository
 
 ### Reference Audio Setup
 
@@ -202,7 +202,7 @@ Embedded System Design: Li Shi
 
 Special Thanks
 
-Akito Van Troyer
+Pr.Akito Van Troyer
 
 ```
 
