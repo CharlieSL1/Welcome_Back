@@ -36,6 +36,14 @@ outputs/
 *.mp3
 *.ogg
 temp_*.wav
+seed-vc/checkpoints/
+seed-vc/runs/
+seed-vc/hf_cache/
+seed-vc/models/
+seed-vc/**/*.pt
+seed-vc/**/*.bin
+seed-vc/**/*.safetensors
+seed-vc/**/*.pth
 
 # Environment variables and secrets
 .env

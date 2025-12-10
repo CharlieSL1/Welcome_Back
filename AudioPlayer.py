@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+from BluetoothAudioPlayer import play_audio_bluetooth
 
 
 def play_audio(audio_file: str) -> bool:
@@ -8,6 +9,13 @@ def play_audio(audio_file: str) -> bool:
         if not os.path.exists(audio_file):
             print(f"Audio file not found: {audio_file}")
             return False
+        
+        use_bluetooth = os.getenv("BLUETOOTH_OUTPUT", "false").lower() == "true"
+        
+        if use_bluetooth:
+            if play_audio_bluetooth(audio_file):
+                return True
+            print("Bluetooth playback failed, falling back to default")
         
         platform = sys.platform
         
@@ -27,8 +35,16 @@ def play_audio(audio_file: str) -> bool:
                         pass
         
         elif platform == "darwin":
-            subprocess.run(["afplay", audio_file], check=True, capture_output=True)
-            return True
+            try:
+                result = subprocess.run(["afplay", audio_file], check=True)
+                print(f"Audio played successfully: {audio_file}")
+                return True
+            except subprocess.CalledProcessError as e:
+                print(f"afplay failed with error code {e.returncode}")
+                return False
+            except FileNotFoundError:
+                print("afplay command not found")
+                return False
         
         else:
             try:

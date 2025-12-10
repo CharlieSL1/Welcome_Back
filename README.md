@@ -1,9 +1,11 @@
 # WELCOMEBACK
 > WelcomeBack is an AI-powered voice system that brings back the voice of a beloved grandfather through technology. Using GPT-4 to generate warm, contextual Chinese messages based on time-of-day, the system automatically triggers at random intervals (2-6 hours) and transforms text into the grandfather's voice using Seed-VC voice conversion technology. Designed for embedded deployment on Raspberry Pi, WelcomeBack creates spontaneous moments of connection throughout the day, preserving memories and bringing comfort through the familiar voice of a loved one.
 
-![GitHub Created At](https://img.shields.io/badge/Created_At-2025-orange) [![GITHUB](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+![GitHub Created At](https://img.shields.io/badge/Created_At-2025-orange) [![GITHUB](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Demo Video](https://img.shields.io/badge/Demo-Video-red?logo=youtube)](https://youtu.be/u1n-yHJyu1U)
 
 ![banner](media/banner.png)
+
+[![Watch Demo Video](https://img.youtube.com/vi/u1n-yHJyu1U/maxresdefault.jpg)](https://youtu.be/u1n-yHJyu1U)
 
 ## Table of Contents
 
@@ -92,26 +94,26 @@ Set the following environment variables before running:
 # Required: OpenAI API key for GPT-4 and TTS
 export OPENAI_API_KEY="your-openai-api-key-here"
 
-# Required: Path to Seed-VC repository
+# Optional: Path to Seed-VC repository (defaults to ./seed-vc bundled in this repo)
 export SEED_VC_PATH="/path/to/seed-vc"
 ```
 
 Or create a `.env` file in the project root (make sure it's in `.gitignore`):
 ```bash
 OPENAI_API_KEY=your-openai-api-key-here
+# Optional override; if omitted, uses ./seed-vc
 SEED_VC_PATH=/path/to/seed-vc
 ```
 
 ### Setting up Seed-VC
 
-1. Clone the Seed-VC repository:
+The project bundles the Seed-VC **code** in `./seed-vc`, but **does not include model/checkpoint files** (to keep the repo pushable). At first run, download or place the required checkpoints under `seed-vc/checkpoints` following the Seed-VC docs.
+
+If you prefer to manage your own copy, clone it elsewhere and point `SEED_VC_PATH` to that location:
 ```bash
-git clone https://github.com/Plachta/Seed-VC.git
+git clone https://github.com/Plachta/Seed-VC.git /your/path/seed-vc
+export SEED_VC_PATH="/your/path/seed-vc"
 ```
-
-2. Follow Seed-VC installation instructions in their repository
-
-3. Set the `SEED_VC_PATH` environment variable to point to the cloned repository
 
 ### Reference Audio Setup
 
@@ -202,7 +204,7 @@ Embedded System Design: Li Shi
 
 Special Thanks
 
-Akito Van Troyer
+Pr.Akito Van Troyer
 
 ```
 
