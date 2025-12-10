@@ -3,19 +3,28 @@ import time
 import random
 import os
 import json
+from pathlib import Path
 from openai import OpenAI
 from SeedVCSpeaker import speak_with_seed_vc
 from AudioPlayer import play_audio
 
+try:
+    from dotenv import load_dotenv  # type: ignore
+    env_path = Path(__file__).parent / ".env"
+    if env_path.exists():
+        load_dotenv(env_path)
+except ImportError:
+    pass
+
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
-    raise ValueError("OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
+    raise ValueError("OpenAI API key not found. Please set OPENAI_API_KEY environment variable or create a .env file.")
 
 client = OpenAI(api_key=api_key)
 
-
-MIN_INTERVAL_HOURS = 2
-MAX_INTERVAL_HOURS = 6
+# This will control the interval between messages. All the scale is in hours.
+MIN_INTERVAL_HOURS = 0.01 
+MAX_INTERVAL_HOURS = 0.02
 
 
 def get_status_from_hour(hour):
@@ -98,9 +107,14 @@ Output format:
 
         if audio_output:
             print(f"Audio file generated: {audio_output}")
-            play_audio(audio_output)
+            print(f"Attempting to play audio...")
+            play_result = play_audio(audio_output)
+            if play_result:
+                print("✓ Audio playback completed successfully")
+            else:
+                print("✗ Audio playback failed - check error messages above")
         else:
-            print("Generation failed")
+            print("✗ Generation failed - no audio file was created")
 
     except Exception as e:
         print(f"Error generating message: {e}")

@@ -44,6 +44,8 @@ def speak_with_seed_vc(text: str,
     try:
         if seed_vc_path is None:
             seed_vc_path = os.getenv("SEED_VC_PATH")
+            if seed_vc_path and ("/path/to/" in seed_vc_path or not os.path.exists(seed_vc_path)):
+                seed_vc_path = None
         if seed_vc_path is None:
             project_root = Path(__file__).resolve().parent
             default_path = project_root / "seed-vc"
@@ -111,8 +113,14 @@ def speak_with_seed_vc(text: str,
             os.unlink(source_audio_path)
             return None
         
+        python_executable = sys.executable
+        project_root = Path(__file__).resolve().parent
+        venv_python = project_root / ".venv" / "bin" / "python"
+        if venv_python.exists():
+            python_executable = str(venv_python)
+        
         cmd = [
-            sys.executable,
+            python_executable,
             inference_script,
             "--source", source_audio_path,
             "--target", reference_audio,
