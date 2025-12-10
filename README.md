@@ -5,7 +5,9 @@
 
 ![banner](media/banner.png)
 
-[![Watch Demo Video](https://img.youtube.com/vi/u1n-yHJyu1U/maxresdefault.jpg)](https://youtu.be/u1n-yHJyu1U)
+<a href="https://youtu.be/u1n-yHJyu1U" target="_blank">
+  <img src="https://img.youtube.com/vi/u1n-yHJyu1U/hqdefault.jpg" alt="Watch Demo Video" style="width:100%;max-width:640px;">
+</a>
 
 ## Table of Contents
 
