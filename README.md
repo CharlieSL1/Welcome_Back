@@ -1,12 +1,12 @@
 # WELCOMEBACK
 > WelcomeBack is an AI-powered voice system that brings back the voice of a beloved grandfather through technology. Using GPT-4 to generate warm, contextual Chinese messages based on time-of-day, the system automatically triggers at random intervals (2-6 hours) and transforms text into the grandfather's voice using Seed-VC voice conversion technology. Designed for embedded deployment on Raspberry Pi, WelcomeBack creates spontaneous moments of connection throughout the day, preserving memories and bringing comfort through the familiar voice of a loved one.
 
-![GitHub Created At](https://img.shields.io/badge/Created_At-2025-orange) [![GITHUB](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/CharlieSL1/Welcome_Back) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Demo Video](https://img.shields.io/badge/Demo-Video-red?logo=youtube)](https://youtu.be/u1n-yHJyu1U)
+![GitHub Created At](https://img.shields.io/badge/Created_At-2025-orange) [![GITHUB](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/CharlieSL1/Welcome_Back) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Demo Video](https://img.shields.io/badge/Demo-Video-red?logo=youtube)](https://youtu.be/OlU-T61ObPk)
 
 ![banner](media/banner.png)
 
 <a href="https://youtu.be/u1n-yHJyu1U" target="_blank">
-  <img src="https://img.youtube.com/vi/u1n-yHJyu1U/hqdefault.jpg" alt="Watch Demo Video" style="width:100%;max-width:640px;">
+  <img src="https://youtu.be/OlU-T61ObPk" alt="Watch Demo Video" style="width:100%;max-width:640px;">
 </a>
 
 ## Table of Contents
@@ -51,6 +51,8 @@ Seed-VC (Voice Conversion)
     ↓
 AudioPlayer (Raspberry Pi Playback)
 ```
+
+![Pipeline](media/Pipeline.png)
 
 The system operates in a continuous loop:
 1. **Scheduler** monitors time and triggers at random intervals (2-6 hours)
