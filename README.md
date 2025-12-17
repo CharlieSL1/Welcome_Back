@@ -5,8 +5,8 @@
 
 ![banner](media/banner.png)
 
-<a href="https://youtu.be/u1n-yHJyu1U" target="_blank">
-  <img src="https://youtu.be/OlU-T61ObPk" alt="Watch Demo Video" style="width:100%;max-width:640px;">
+<a href="https://www.youtube.com/watch?v=OlU-T61ObPk&feature=youtu.be" target="_blank">
+  <img src="https://img.youtube.com/vi/OlU-T61ObPk/maxresdefault.jpg" alt="Watch Demo Video" style="width:100%;max-width:640px;">
 </a>
 
 ## Table of Contents
